@@ -37,7 +37,7 @@ Remove the sample app provided by the jbossas-7 cartridge
 
 Add this upstream repo
 
-    git remote add quickstart -m master git://github.com/immutant/openshift-quickstart.git
+    git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git
     git pull --no-commit -s recursive -X theirs quickstart master
 
 Then add, commit, and push your changes
