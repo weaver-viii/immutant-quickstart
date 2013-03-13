@@ -39,10 +39,13 @@
         <extension module="org.immutant.core"/>
         <extension module="org.immutant.cache"/>
         <extension module="org.projectodd.polyglot.hasingleton"/>
+        <extension module="org.projectodd.polyglot.cache"/>
     </extensions>
     
     <system-properties>
        <property name="org.apache.coyote.http11.Http11Protocol.COMPRESSION" value="on"/>
+       <property name="org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH" value="true"/>
+       <property name="org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH" value="true"/>
        <property name="org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR" value="false"/>
     </system-properties>
 
@@ -194,7 +197,7 @@
                     <locking isolation="REPEATABLE_READ"/>
                 </replicated-cache>
             </cache-container>
-            <cache-container name="web" aliases="standard-session-cache" default-cache="repl">
+            <cache-container name="web" aliases="polyglot standard-session-cache" default-cache="repl">
                 <transport lock-timeout="60000"/>
                 <replicated-cache name="repl" mode="ASYNC" batching="true">
                     <file-store/>
@@ -511,6 +514,7 @@
         <subsystem xmlns="urn:jboss:domain:immutant-core:1.0"/>
         <subsystem xmlns="urn:jboss:domain:immutant-cache:1.0"/>
         <subsystem xmlns="urn:jboss:domain:polyglot-hasingleton:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:polyglot-cache:1.0"/>
     </profile>
 
     <interfaces>
