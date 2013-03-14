@@ -4,5 +4,5 @@
  :swank-port 24005
  :nrepl-port 27888
 
- ;; :lein-profiles [:prod :foo]
+ :lein-profiles [:openshift]
 }
