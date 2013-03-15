@@ -19,7 +19,10 @@ your `project.clj`, you might add:
 
 You can then run `rhc port-forward -a yourapp` to setup your tunnel.
 These and other `:immutant` options can be specified in the deployment
-descriptor as well; see `deployments/your-clojure-application.clj`.
+descriptor: `deployments/your-clojure-application.clj`. You'll notice
+we activate the `:openshift` profile in there, which may result in
+some harmless warnings in the log unless you a) add that profile to
+your project.clj or 2) remove it from the deployment descriptor.
 
 Running on OpenShift
 --------------------
