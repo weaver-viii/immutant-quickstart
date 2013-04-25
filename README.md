@@ -1,5 +1,5 @@
 Immutant on OpenShift
-=========================
+=====================
 
 Here is a quick way to try out your Leiningen-based Clojure
 application running in Immutant on OpenShift.
@@ -29,35 +29,25 @@ Running on OpenShift
 
 Create an account at http://openshift.redhat.com/
 
-Create a jbossas-7 application
+Ensure you have the latest version of the
+[client tools](https://www.openshift.com/get-started#cli).
 
-    rhc app create -a yourapp -t jbossas-7
+Create a jbossas-7 application from the code in this repository:
 
-Remove the sample app provided by the jbossas-7 cartridge
+    rhc app create -a yourapp -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
 
-    cd yourapp
-    rm -rf pom.xml src
-
-Add this upstream repo
-
-    git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git
-    git pull --no-commit -s recursive -X theirs quickstart master
-
-Then add, commit, and push your changes
-
-    git add -A .
-    git commit -m "Add Immutant modules and setup Clojure project"
-    git push
-
-That's it! The first build will take a minute or two, even after the
-push completes, so be patient. You should ssh to your app and run
-`tail_all` so you'll have something to watch while your app deploys.
+That's it! The first build will take a minute or two, so be patient.
+You should ssh to your app and run `tail_all` so you'll have something
+to watch while your app deploys.
 
 When you see `Deployed "your-clojure-application.clj"` in the log,
 point a browser at the following link (adjusted for your namespace)
 and you should see a friendly welcome:
 
     http://yourapp-$namespace.rhcloud.com
+
+Any changes you push from the `yourapp/` directory will trigger a
+redeploy of your app.
 
 Drop in to the `#immutant` IRC channel on freenode.net if you have any
 questions.
