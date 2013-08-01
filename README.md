@@ -32,9 +32,11 @@ Create an account at http://openshift.redhat.com/
 Ensure you have the latest version of the
 [client tools](https://www.openshift.com/get-started#cli).
 
-Create a jbossas-7 application from the code in this repository:
+Create a jbossas-7 application from the code in this repository by
+typing this in exactly, replacing "yourapp" with whatever you want to
+call your app:
 
-    rhc app create -a yourapp -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
+    rhc app create -a yourapp -s -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
 
 That's it! The first build will take a minute or two, so be patient.
 You should ssh to your app and run `tail_all` so you'll have something
@@ -48,6 +50,16 @@ and you should see a friendly welcome:
 
 Any changes you push from the `yourapp/` directory will trigger a
 redeploy of your app.
+
+At this point, you either write your app from scratch, or you merge in
+changes from an existing project, i.e. your real app. For example,
+
+    git remote add yourrealapp -m master git@github.com:immutant/cluster-demo.git
+    git pull -s recursive -X theirs yourrealapp master
+    git push
+
+Now whenever you're ready to deploy your real app to OpenShift, you
+pull in changes from your real repo and push to your OpenShift repo.
 
 Drop in to the `#immutant` IRC channel on freenode.net if you have any
 questions.
