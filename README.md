@@ -18,11 +18,8 @@ your `project.clj`, you might add:
     :immutant {:nrepl-port 24005}
 
 You can then run `rhc port-forward -a yourapp` to setup your tunnel.
-These and other `:immutant` options can be specified in the deployment
-descriptor: `deployments/your-clojure-application.clj`. You'll notice
-we activate the `:openshift` profile in there, which may result in
-some harmless warnings in the log unless you a) add that profile to
-your project.clj or 2) remove it from the deployment descriptor.
+These and other `:immutant` options can optionally be specified in the
+deployment descriptor: `deployments/your-clojure-application.clj`.
 
 Running on OpenShift
 --------------------
@@ -32,8 +29,8 @@ Create an account at http://openshift.redhat.com/
 Ensure you have the latest version of the
 [client tools](https://www.openshift.com/get-started#cli).
 
-Create a jbossas-7 application from the code in this repository by
-typing this in exactly, replacing "yourapp" with whatever you want to
+Create a jbossas-7 application from the code in this repository using
+the following command, replacing "yourapp" with whatever you want to
 call your app:
 
     rhc app create -a yourapp -s -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
@@ -51,8 +48,10 @@ and you should see a friendly welcome:
 Any changes you push from the `yourapp/` directory will trigger a
 redeploy of your app.
 
-At this point, you either write your app from scratch, or you merge in
-changes from an existing project, i.e. your real app. For example,
+At this point, you can either write your app from scratch, or you can
+merge in changes from an existing project, i.e. your real app. Let's
+use a small app demonstrating the various Immutant clustering
+features, for example:
 
     git remote add yourrealapp -m master git@github.com:immutant/cluster-demo.git
     git pull -s recursive -X theirs yourrealapp master
@@ -61,5 +60,10 @@ changes from an existing project, i.e. your real app. For example,
 Now whenever you're ready to deploy your real app to OpenShift, you
 pull in changes from your real repo and push to your OpenShift repo.
 
-Drop in to the `#immutant` IRC channel on freenode.net if you have any
-questions.
+By the way, to see the clustering features in that demo app, you'll
+need to add a gear, like so:
+
+    rhc scale-cartridge jbossas-7 -a yourapp 2
+
+Have fun, and drop in to the `#immutant` IRC channel on freenode.net
+if you have any questions.
