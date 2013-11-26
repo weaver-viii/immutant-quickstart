@@ -28,11 +28,25 @@ Create an account at http://openshift.redhat.com/
 Ensure you have the latest version of the
 [client tools](https://www.openshift.com/get-started#cli).
 
-Create a jbossas-7 application from the code in this repository using
-the following command, replacing "yourapp" with whatever you want to
-call your app:
+Create a jbossas-7 application
 
-    rhc app create -a yourapp -s -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
+    rhc app create -a yourapp -t jbossas-7
+
+Remove the sample app provided by the jbossas-7 cartridge
+
+    cd yourapp
+    rm -rf pom.xml src
+
+Add this upstream repo
+
+    git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git
+    git pull --no-commit -s recursive -X theirs quickstart master
+
+Then add, commit, and push your changes
+
+    git add -A .
+    git commit -m "Add Immutant modules and setup Clojure project"
+    git push
 
 That's it! The first build will take a minute or two, so be patient.
 You should ssh to your app and run `tail_all` so you'll have something
