@@ -30,7 +30,7 @@ Ensure you have the latest version of the
 
 Create a jbossas-7 application
 
-    rhc app create -a yourapp -t jbossas-7
+    rhc app create yourapp jbossas-7
 
 Remove the sample app provided by the jbossas-7 cartridge
 
