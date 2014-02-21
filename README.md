@@ -6,7 +6,7 @@ application running in Immutant on OpenShift.
 
 By default, this quickstart will install the latest incremental
 version of Immutant. You can specify a different version by tweaking
-`.openshift/action_hooks/pre_start_jbossas-7`.
+`.openshift/action_hooks/pre_start_jbossas`.
 
 One particularly nice thing about OpenShift is that it provides simple
 ssh port forwarding, so you can configure your app to start either a
