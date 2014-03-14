@@ -23,7 +23,7 @@ deployment descriptor: `deployments/your-clojure-application.clj`.
 Running on OpenShift
 --------------------
 
-Create an account at http://openshift.redhat.com/
+Create an account at https://www.openshift.com
 
 Ensure you have the latest version of the
 [client tools](https://www.openshift.com/get-started#cli).
