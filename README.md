@@ -19,7 +19,9 @@ git clone ssh bla bla bla from application menu on openshift
     cd $yourapp 
     rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" && git push
 
-and for real app:
+    OR *OR SIMPLY COPY PASTE SOURCES TO YOUR CLONED* app :
+
+OR for real add from repo:
 
     git remote add $yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs $yourrealapp master 
 
