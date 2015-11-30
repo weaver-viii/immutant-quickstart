@@ -1,6 +1,11 @@
 Immutant on OpenShift
 =====================
 
+rhc app create yourapp jbossas-7 && cd yourapp && rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" && git push
+
+
+git remote add yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs yourrealapp master && git push
+
 Here is a quick way to try out your Leiningen-based Clojure
 application running in Immutant on OpenShift.
 
@@ -66,7 +71,7 @@ merge in changes from an existing project, i.e. your real app. Let's
 use a small app demonstrating the various Immutant clustering
 features, for example:
 
-    git remote add yourrealapp -m master git@github.com:immutant/cluster-demo.git
+    git remote add yourrealapp -m master git://github.com/immutant/cluster-demo.git
     git pull -s recursive -X theirs yourrealapp master
     git push
 
