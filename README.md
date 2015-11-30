@@ -1,21 +1,23 @@
 Immutant on OpenShift
 =====================
 
-    rhc app create yourapp jbossas-7 
+    export yourapp=scalledas7
+
+    rhc app create $yourapp jbossas-7 
     
 or scalled
     
-    rhc app create -s yourapp jbossas-7 
+    rhc app create -s $yourapp jbossas-7 
     
-    rhc create app -s yourapp jbossas-7 
+    rhc create app -s $yourapp jbossas-7 
 
-    cd yourapp && rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" 
+    cd $yourapp && rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" 
 
     git push
 
 and for real app:
 
-    git remote add yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs yourrealapp master 
+    git remote add $yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs $yourrealapp master 
 
     git push
 
