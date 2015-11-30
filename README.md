@@ -19,12 +19,15 @@ git clone ssh bla bla bla from application menu on openshift
     cd $yourapp 
     rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" && git push
 
-    OR *OR SIMPLY COPY PASTE SOURCES TO YOUR CLONED* app :
+    OR *OR SIMPLY COPY PASTE SOURCES TO YOUR CLONED* app and then Just:
+    git commit -am 'Your real app now placed here'
+    git push
 
 OR for real add from repo:
 
-    git remote add $yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs $yourrealapp master 
+    *git remote add $yourrealapp -m master git://github.com/immutant/cluster-demo.git && git pull -s recursive -X theirs $yourrealapp master*
 
+and then Just
     git push
 
 Here is a quick way to try out your Leiningen-based Clojure
