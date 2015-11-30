@@ -2,6 +2,10 @@ Immutant on OpenShift
 =====================
 
     rhc app create yourapp jbossas-7 
+    
+or scalled
+    
+    rhc app create -s yourapp jbossas-7 
 
     cd yourapp && rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" 
 
