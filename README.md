@@ -3,23 +3,9 @@ Immutant on OpenShift
 
     export yourapp=scalledas7
 
-    rhc app create $yourapp jbossas-7 
+    rhc app create -a $yourapp -s -t jbossas-7 --from-code git://github.com/openshift-quickstart/immutant-quickstart.git
     
-or scalled
-    
-    rhc app create -s $yourapp jbossas-7 
-    
-or
-    
-    rhc create app -s $yourapp jbossas-7 
-
-If not cloned then
-git clone ssh bla bla bla from application menu on openshift
-
-    cd $yourapp 
-    rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" && git push
-
-    OR *OR SIMPLY COPY PASTE SOURCES TO YOUR CLONED* app and then Just:
+OR *OR SIMPLY COPY PASTE SOURCES TO YOUR CLONED* app and then Just:
     git commit -am 'Your real app now placed here'
     git push
 
@@ -29,6 +15,22 @@ OR for real add from repo:
 
 and then Just
     git push
+    
+THAT'S ALL!!!
+THAT'S ALL!!!
+THAT'S ALL!!!
+    
+    #(OPTIONAL, NOT REQUIRED, Use above if it's ok) 
+    only use if you have problem with code above. More verbose almost identical install
+    
+    rhc app create -s $yourapp jbossas-7 
+
+If not cloned then
+git clone ssh bla bla bla from application menu on openshift
+
+    cd $yourapp 
+    rm -rf pom.xml src && git remote add quickstart -m master git://github.com/openshift-quickstart/immutant-quickstart.git && git pull --no-commit -s recursive -X theirs quickstart master && git add -A . && git commit -m "Add Immutant modules and setup Clojure project" && git push
+
 
 Here is a quick way to try out your Leiningen-based Clojure
 application running in Immutant on OpenShift.
